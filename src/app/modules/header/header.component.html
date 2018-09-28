@@ -1,0 +1,21 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="box-shadow: 0px 1px 15px 1px rgba(81,77,92,0.08);">
+  <div class="row" style="box-shadow: 0px 1px 15px 1px rgba(81, 77, 92, 0.32); ">
+    <div class="col-lg-6 col-md-6 col-sm-5 col-5">
+      <div class="row">
+        <a href="index.html" class="m-brand__logo-wrapper">
+          <img alt="" src="../../../assets/images/is_logo.png" class="logo"/>
+        </a>
+      </div>
+    </div>
+    <div *ngIf="isLoggedIn" class="col-lg-6 col-md-6 col-sm-7 col-7" style="float: right;">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-12" style="text-align: right; margin-top: 5%; padding-right: 4%;">
+          <div>
+            <span style="padding-right: 14%">Welcome,  {{userFirstname}}</span>
+            <i class="fas fa-sign-out-alt" style="zoom:2;" (click)="logout()"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

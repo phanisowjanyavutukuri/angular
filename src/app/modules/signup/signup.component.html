@@ -1,0 +1,72 @@
+<div class="m-grid__item m-grid__item--fluid m-wrapper background">
+    <div class="m-content loginHeader">
+        
+     
+  <div class="form sign-in" style="width: 50vw; margin-left: 20vw;">
+    
+    <label class="col-md-12 col-sm-12 col-xs-12">
+        <div *ngIf="firstname.invalid && firstname.touched" class="alert alert-danger">
+            <div *ngIf="firstname.errors.required">Firstname is required.</div>
+        </div>
+        <input id="firstname" name="firstname" class="col-md-12 col-sm-12 col-xs-12" 
+        placeholder="Firstname" #firstname="ngModel" required [(ngModel)]="user.firstname" >
+    </label>
+    
+
+    <label class="col-md-12 col-sm-12 col-xs-12">
+        <div *ngIf="lastname.invalid && lastname.touched" class="alert alert-danger">
+            <div *ngIf="lastname.errors.required">Lastname is required.</div>
+        </div>
+        <input id="lastname" name="lastname" class="col-md-12 col-sm-12 col-xs-12" 
+        placeholder="Lastname" #lastname="ngModel" required [(ngModel)]="user.lastname" >
+    </label>
+    <label class="col-md-12 col-sm-12 col-xs-12">
+        <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
+        <div *ngIf="email.errors.required">Email is required.</div>
+        <div *ngIf="email.touched && email.errors.pattern">Email is invalid</div>
+        </div>
+        <input id="email" (keydown)="onTextBoxkeydown($event)" name="email" 
+        class="col-md-12 col-sm-12 col-xs-12" placeholder="Email" #email="ngModel" 
+        required [(ngModel)]="user.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,9})+$">
+    </label>
+    <label class="  d-12 col-sm-12 col-xs-12">
+        <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger">
+            <div *ngIf="phone.errors.required">Phone number is required.</div>
+            <div *ngIf="phone.touched && phone.errors.pattern">Phone numner is invalid</div>
+        </div>
+        <input id="phone" name="phone" class="col-md-12 col-sm-12 col-xs-12" placeholder="Phonenumber" 
+        #phone="ngModel" required [(ngModel)]="user.phone" pattern="[0-9]+">
+    </label>
+    <label class="col-md-12 col-sm-12 col-xs-12">
+        <div *ngIf="paymentplan.touched && paymentplan.invalid" class="alert alert-danger"> 
+            Payment plan is required
+        </div>
+        <select class='form-control' name="paymentplan" [(ngModel)]="user.paymentplan" #paymentplan="ngModel" required>
+            <!-- <option [ngValue]="" selected>Select a plan</option> -->
+            <option [ngValue]="undefined" disabled  selected> Please select a plan </option>
+            <option *ngFor="let plan of paymentPlans" [ngValue]="plan.id">{{plan.planname}}</option>
+        </select>
+    </label>
+    <label class="col-md-12 col-sm-12 col-xs-12">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">Password is required.</div>
+        </div>
+        <input type="password" (keyup.enter)="onEnter(email,password)" (keydown)="onTextBoxkeydown($event)"
+            placeholder="Password" required id="password" name="password" #password="ngModel" [(ngModel)]="user.password">
+    </label>
+    <div class="form-group">
+        <div *ngIf="errorMessage" class="alert alert-danger">
+            <div>{{errorMessage}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div *ngIf="successMessage" class="alert alert-success">
+            <div>{{successMessage}}. <a href="/login">Login Now!</a></div>
+        </div>
+    </div>
+    <button type="submit" class="submit col-md-12 col-sm-12 col-xs-12" (click)="registerUser()" 
+    [disabled]="email.errors || password.errors || firstname.errors || lastname.errors || phone.errors 
+    || paymentplan.invalid">Sign Up</button>
+  </div>
+</div>
+</div>

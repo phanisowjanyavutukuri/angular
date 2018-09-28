@@ -1,0 +1,100 @@
+<div class="row" style="margin-left: 0px;">
+  <div class="col-md-12 col-sm-12 col-12 " style="background-color: white; padding-left: 0px; padding-right: 0px;">
+    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right: 0px;padding-left: 0px">
+      <div class="col-md-12 col-sm-12 col-xs-12 container" style="background-color: whitesmoke;color:black;">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="row" style="padding-top: 2%">
+            <div class="col-md-8 col-sm-6 col-4"></div>
+            <div class="col-md-4 col-sm-6 col-8">
+            <button class="btn" style="float:right;" data-toggle="collapse" data-target="#collapsibleFilter">
+            <i class="fas fa-sliders-h" style="float:right;"></i>
+            </button>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-12 collapse" id="collapsibleFilter">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 3%;">
+              <div class="row">
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-12"><label>Start Time:</label></div>
+                      <div class="col-md-12 col-sm-12 col-12">
+                        <p-calendar [inputStyle]="{'width':'100%'}" [(ngModel)]="searchCriteria.startTime" showTime="true" hourFormat="12"></p-calendar>
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-12"><label>End Time:</label></div>
+                      <div class="col-md-12 col-sm-12 col-12">
+                        <p-calendar [inputStyle]="{'width':'100%'}" [minDate]="searchCriteria.startTime" [(ngModel)]="searchCriteria.endTime" showTime="true" hourFormat="12"></p-calendar>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-12"><label>Device: </label></div>
+                      <div class="col-md-12 col-sm-12 col-12">
+                        <select name="boxId" [(ngModel)]="searchCriteria.boxId" style="width: 100%;">
+                          <option *ngFor="let box of boxes" [ngValue]="box">{{box}}</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 col-6" style="float:right;">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-12"><label> </label></div>
+                      <div class="col-md-12 col-sm-12 col-12">
+                        <input type="button" class="col-md-12 col-sm-12 col-12 btn" value="Apply" (click)="fetchEvents()"/>
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+                    
+          <div class="col-md-12 col-sm-12 col-12">
+              <div class="row">
+              <div class="col-md-10 col-sm-12 col-12"  style="margin-top: 1%;">
+                <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 3%">
+                  <div class="row">
+                    <span class="col-md-12 col-sm-12 col-xs-12 m-portlet__head-text" style="font-size: 1.0rem;font-weight: 500;">
+                    Temperature Changes
+                    </span>
+                  </div>
+                </div>
+                <div style=" display: block;" #temperatureGraph>
+                    <svg width="960" height="500" id="temperatureGraph" ></svg>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="border-top: 1px solid #80808021;">
+            <div class="col-md-10" style="margin-top: 4%;">
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 3%;">
+                  <div class="row">
+                    <span class="col-md-12 col-sm-12 col-xs-12 m-portlet__head-text">
+                    Location Timeline
+                    </span>
+                  </div>
+                </div>
+                <div id="timeline1"></div>
+                <div id="hoverRes">
+                    <div class="coloredDiv" [style.backgroundColor]="legendColor"></div>
+                    <div id="name">{{clinicName}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 m-portlet__body">
+              <div id="m_calendar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+li{
+    list-style: none;
+}
+#collapsedSidebar {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    flex:1;
+    background: #28333E;
+    margin-bottom: -10vh;
+}
+a:hover{
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+#collapsedSidebar nav li:hover{
+    background-color: #252c35; 
+}
+#sidebar nav li:hover{
+    background-color: #252c35; 
+}
+.collapsibleIcon{
+    zoom: 1.5;
+    padding-right: 2%
+}
+#sidebarCollapseBtn{
+    background-color: #fff;
+    box-shadow: none;
+    padding-left: 0px;
+}
+.menu{
+    padding-left: 0px;
+}
+#sidebar {
+    min-width: 200px;
+    max-width: 200px;
+    background: #2B333E;
+    color: #fff;
+    transition: 0.5s;
+    flex: 1;
+    margin-bottom: -10vh;
+}
+#collapsedSidebar a{
+    color: white;
+}
+#collapsedSidebar li{
+    padding: 20%;
+}
+#sidebar li{
+    padding: 20%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+}
+#sidebar .fas{
+    padding-right: 10px;
+}
+#sidebar a{
+    color: white;
+}

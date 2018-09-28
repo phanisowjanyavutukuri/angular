@@ -1,0 +1,22 @@
+.logo{
+    zoom: 0.4;
+}
+ul li{
+    text-align: right;
+    color: white;
+    border-bottom: 1px solid lightgray;
+}
+ul { 
+    padding: 0px;
+    display: inline;
+    list-style-type: none;
+ }
+ li {
+    float: left;
+    width: 100%;
+    list-style: outside none none;
+    padding-right: 12%;
+ }
+ ul li a{
+     text-decoration: none;
+ }
