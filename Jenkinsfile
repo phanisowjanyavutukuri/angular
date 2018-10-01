@@ -120,8 +120,8 @@ stage('pod-deployment') {
   }
   
    }
-    catch{
-                                sh '''
+    catch(Exception e) {
+      sh '''
 		 TAG_NAME=$(git rev-parse HEAD~2)
          IMAGE_TAG=${TAG_NAME:0:7}
          
