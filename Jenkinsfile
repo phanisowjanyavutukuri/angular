@@ -105,7 +105,7 @@ stage('cluster-context') {
 					   }
 stage('pod-deployment') {
  steps {
-     try{
+     try {
          
      
   container('kubectl') {
