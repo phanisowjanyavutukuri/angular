@@ -70,6 +70,9 @@ spec:
 		git log --format="%H" -n 3
 		git log --format="%H" -n 2
 		git log --format="%H" -n 1
+		git rev-parse HEAD~1
+		git rev-parse HEAD~2
+		git rev-parse HEAD~3
 
         docker login -u _json_key -p "$(cat /home/first.json)" https://gcr.io
                             
