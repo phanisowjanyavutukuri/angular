@@ -104,10 +104,10 @@ stage('cluster-context') {
 					   }
 					   }
 stage('pod-deployment') {
-   try 
+  
  steps {
    
-         
+       
      
   container('kubectl') {
     sh '''
@@ -118,24 +118,11 @@ stage('pod-deployment') {
          source pod-deployment.sh; application_deployment gcr.io/cloudwms-195710/angular-app cloudwms-angular-app 1 $IMAGE_TAG 80 
 
         '''
-  }
- }
+  
+ 
    }
-    catch(Exception e) {
-      sh '''
-		 TAG_NAME=$(git rev-parse HEAD~2)
-         IMAGE_TAG=${TAG_NAME:0:7}
-         
-         sleep 100
-         
-        source rolling-bach.sh; rolling-back-script cloudwms-angular-app gcr.io/cloudwms-195710/angular-app $TAG_NAME 
-        
-        
-        '''
-                               
-                           }
-                                                      }
-
+ }
+  }
 
 stage('exposing pod ') {
  steps {
@@ -151,3 +138,22 @@ stage('exposing pod ') {
                            }
 }
 }
+
+stage('roll out ') {
+ steps {
+  container('kubectl') {
+
+{
+      sh '''
+		 TAG_NAME=$(git rev-parse HEAD~2)
+         IMAGE_TAG=${TAG_NAME:0:7}
+         
+         sleep 100
+         
+        source rolling-bach.sh; rolling-back-script cloudwms-angular-app gcr.io/cloudwms-195710/angular-app $TAG_NAME 
+        
+        
+        '''
+                               
+                           }
+  }}
