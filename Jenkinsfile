@@ -68,7 +68,8 @@ spec:
 		IMAGE_TAG=${TAG_NAME:0:7}
 		
 		git log --format="%H" -n 3
-		git log --format="%H" -n 3
+		git log --format="%H" -n 2
+		git log --format="%H" -n 1
 
         docker login -u _json_key -p "$(cat /home/first.json)" https://gcr.io
                             
