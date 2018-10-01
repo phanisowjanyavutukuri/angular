@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://cloudwms-cloud-gateway.cloudwms-dev:8084'
+  baseUrl: 'http://localhost:8084'
 };
 
 /*
