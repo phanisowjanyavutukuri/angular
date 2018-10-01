@@ -128,11 +128,8 @@ stage('pod-deployment') {
          
          sleep 100
          
-        source rolling-bach.sh; rolling-back-script cloudwms-configserver gcr.io/cloudwms-195710/config-server $TAG_NAME 
-        source rolling-bach.sh; rolling-back-script cloudwms-discovery-service gcr.io/cloudwms-195710/cloud-gateway cloudwms-cloud-gateway  $TAG_NAME 
-        source rolling-bach.sh; rolling-back-script cloudwms-cloud-gateway gcr.io/cloudwms-195710/discovery-service cloudwms-discovery-service $TAG_NAME 
-        source rolling-bach.sh; rolling-back-script cloudwms-user-service gcr.io/cloudwms-195710/user-service cloudwms-user-service $TAG_NAME 
-        source rolling-bach.sh; rolling-back-script cloudwms-eventdata-service  gcr.io/cloudwms-195710/eventdata-service cloudwms-eventdata-service $TAG_NAME 
+        source rolling-bach.sh; rolling-back-script cloudwms-angular-app gcr.io/cloudwms-195710/angular-app $TAG_NAME 
+       
         
         
         '''
