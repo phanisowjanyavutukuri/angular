@@ -3,7 +3,7 @@ RUN mkdir /frontend
 COPY ./ /frontend
 WORKDIR /frontend
 RUN npm install 
-RUN ng build --prod
+RUN npm run-script build --prod
 
 FROM nginx
 
