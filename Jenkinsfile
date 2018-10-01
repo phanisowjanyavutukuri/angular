@@ -104,8 +104,9 @@ stage('cluster-context') {
 					   }
 					   }
 stage('pod-deployment') {
+   try 
  steps {
-     try {
+   
          
      
   container('kubectl') {
@@ -118,7 +119,7 @@ stage('pod-deployment') {
 
         '''
   }
-  
+ }
    }
     catch(Exception e) {
       sh '''
@@ -133,8 +134,7 @@ stage('pod-deployment') {
         '''
                                
                            }
-                           }
-                           }
+                                                      }
 
 
 stage('exposing pod ') {
