@@ -139,21 +139,3 @@ stage('exposing pod ') {
 }
 }
 
-stage('roll out ') {
- steps {
-  container('kubectl') 
-
-{
-      sh '''
-		 TAG_NAME=$(git rev-parse HEAD~2)
-         IMAGE_TAG=${TAG_NAME:0:7}
-         
-         sleep 100
-         
-        source rolling-bach.sh; rolling-back-script cloudwms-angular-app gcr.io/cloudwms-195710/angular-app $TAG_NAME 
-        
-        
-        '''
-                               
-                           }
-  }}
