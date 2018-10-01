@@ -40,6 +40,9 @@ export class SignupComponent implements OnInit {
       this.paymentPlans = data.json();
     });
   }
+  onEnter(email,password){
+    
+  }
 
   registerUser() {
     console.log(this.user);

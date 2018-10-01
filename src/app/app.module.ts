@@ -21,6 +21,7 @@ import { UserUtilityService } from './modules/common/user-utility.service';
 import { AuthGuard } from './modules/common/auth-guard.service';
 import { LayoutComponent } from './modules/layout/layout.component';
 import { HeaderService } from './modules/header/header.service';
+import { UserInfoComponent } from './modules/user-info-header/user-info.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeaderService } from './modules/header/header.service';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

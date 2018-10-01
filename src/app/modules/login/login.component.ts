@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   onTextBoxkeydown(event: any) {
     this.errorMessage = '';
   }
+  onEnter(email,password) {
+    
+  }
 
   login() {
     this.loginService.login(this.user).subscribe(data => {
