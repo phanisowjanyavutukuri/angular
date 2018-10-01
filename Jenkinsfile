@@ -105,10 +105,11 @@ stage('cluster-context') {
 					   }
 stage('pod-deployment') {
  steps {
-     try {
+    
          
      
   container('kubectl') {
+      try {
     sh '''
   		 TAG_NAME=$(git rev-parse HEAD)
          IMAGE_TAG=${TAG_NAME:0:7}
@@ -120,7 +121,7 @@ stage('pod-deployment') {
 
         '''
                           }        
-                           }
+                           
                            catch(Exception error) {
 	     sh '''
 	     TAG_NAME=$(git rev-parse HEAD~2)
@@ -132,7 +133,7 @@ stage('pod-deployment') {
 	     '''
 	     
 	    }
-
+}
                       
                            
 
