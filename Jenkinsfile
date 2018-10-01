@@ -141,7 +141,7 @@ stage('exposing pod ') {
 
 stage('roll out ') {
  steps {
-  container('kubectl') {
+  container('kubectl') 
 
 {
       sh '''
