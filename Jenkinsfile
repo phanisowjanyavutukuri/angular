@@ -119,9 +119,10 @@ stage('pod-deployment') {
         
 
         '''
+                          }        
                            }
-                           catch{
-                                sh '''
+        catch{
+          sh '''
 		 TAG_NAME=$(git rev-parse HEAD~2)
          IMAGE_TAG=${TAG_NAME:0:7}
          
@@ -136,7 +137,7 @@ stage('pod-deployment') {
         
         '''
                            }                    
-                           }
+                           
 
                            }
                            }
