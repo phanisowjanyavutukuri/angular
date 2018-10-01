@@ -66,6 +66,9 @@ spec:
       sh '''
         TAG_NAME=$(git rev-parse HEAD)
 		IMAGE_TAG=${TAG_NAME:0:7}
+		
+		git log --format="%H" -n 3
+		git log --format="%H" -n 3
 
         docker login -u _json_key -p "$(cat /home/first.json)" https://gcr.io
                             
