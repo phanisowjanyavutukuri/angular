@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://cloudwms-cloud-gateway.cloudwms-dev:30002'
+  baseUrl: 'http://104.154.62.234:30002'
 };
