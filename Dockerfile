@@ -1,13 +1,11 @@
 FROM node:8
 RUN mkdir /frontend
-COPY ./ /frontend
+COPY ./int/ /frontend
 WORKDIR /frontend
-RUN npm install 
+RUN npm install
 RUN npm run-script build --prod
 
 FROM nginx
 
-COPY --from=0  /frontend    /usr/share/nginx/html/
-RUN sed -i 's% /usr/share/nginx/html% /usr/share/nginx/html/dist/sample%' /etc/nginx/conf.d/default.conf
-
-
+COPY --from=0  /frontend/dist    /usr/share/nginx/html/
+COPY ./default /etc/nginx/conf.d/default.conf
