@@ -7,5 +7,6 @@ RUN npm run-script build --prod
 
 FROM nginx
 
-COPY --from=0  /frontend/dist    /usr/share/nginx/html/
+RUN mkdir /usr/share/nginx/html/dist
+COPY --from=0  /frontend/dist    /usr/share/nginx/html/dist
 COPY ./default /etc/nginx/conf.d/default.conf
