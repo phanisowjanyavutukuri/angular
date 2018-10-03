@@ -1,6 +1,6 @@
 FROM node:8
 RUN mkdir /frontend
-COPY ./int/ /frontend
+COPY ./frontend/ /frontend
 WORKDIR /frontend
 RUN npm install
 RUN npm run-script build --prod
