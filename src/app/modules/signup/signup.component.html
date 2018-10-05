@@ -9,7 +9,7 @@
             <div *ngIf="firstname.errors.required">Firstname is required.</div>
         </div>
         <input id="firstname" name="firstname" class="col-md-12 col-sm-12 col-12" 
-        placeholder="Firstname" #firstname="ngModel" required [(ngModel)]="user.firstName" >
+        placeholder="Firstname" #firstname="ngModel" required [(ngModel)]="user.firstname" >
     </label>
     
 
@@ -18,7 +18,7 @@
             <div *ngIf="lastname.errors.required">Lastname is required.</div>
         </div>
         <input id="lastname" name="lastname" class="col-md-12 col-sm-12 col-12" 
-        placeholder="Lastname" #lastname="ngModel" required [(ngModel)]="user.lastName" >
+        placeholder="Lastname" #lastname="ngModel" required [(ngModel)]="user.lastname" >
     </label>
     <label class="col-md-12 col-sm-12 col-12">
         <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
@@ -41,7 +41,7 @@
         <div *ngIf="paymentplan.touched && paymentplan.invalid" class="alert alert-danger"> 
             Payment plan is required
         </div>
-        <select class='form-control' name="paymentplan" [(ngModel)]="user.paymentPlanId" #paymentplan="ngModel" required>
+        <select class='form-control' name="paymentplan" [(ngModel)]="user.paymentplan" #paymentplan="ngModel" required>
             <!-- <option [ngValue]="" selected>Select a plan</option> -->
             <option [ngValue]="undefined" disabled  selected> Please select a plan </option>
             <option *ngFor="let plan of paymentPlans" [ngValue]="plan.id">{{plan.planname}}</option>
@@ -65,7 +65,7 @@
         </div>
     </div>
     <button type="submit" class="submit col-md-12 col-sm-12 col-12" (click)="registerUser()" 
-    [disabled]="email.errors || password.errors || firstname.errors || lastname.errors || phone.errors 
+    [disabled]="email.errors || password.errors || firstname.errors || lastname.errors || phone.errors
     || paymentplan.invalid">Sign Up</button>
   </div>
 </div>

@@ -1,10 +1,10 @@
 export class User {
-    public email: String;
-    public password: String;
-    public firstName: String;
-    public lastName: String;
-    public phone: String;
-    public paymentPlanId: String;
+    public email: string;
+    public password: string;
+    public firstname: string;
+    public lastname: string;
+    public phone: string;
+    public paymentplan: number;
 
     constructor() {}
 }
