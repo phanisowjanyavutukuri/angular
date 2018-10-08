@@ -66,10 +66,9 @@ export class DashboardComponent implements OnInit {
     this.events = data.json();
     let positionEvents = [];
     this.events.forEach(element => {
-        if (element.eventType === 'Position') {
+        if (element.eventType === 'Position' && element.locationDTO) {
             positionEvents.push(element);
-        }
-        if (element.eventType === 'Temperatur') {
+        } else if (element.eventType === 'Temperatur') {
             this.temperatures[0].values.push({
                 'date': new Date(element.timestamp),
                 'temperature': element.value
