@@ -32,10 +32,11 @@
     <label class="  d-12 col-sm-12 col-12">
         <div *ngIf="phone.invalid && phone.touched" class="alert alert-danger">
             <div *ngIf="phone.errors.required">Phone number is required.</div>
-            <div *ngIf="phone.touched && phone.errors.pattern">Phone numner is invalid</div>
+            <div *ngIf="phone.touched && phone.errors.pattern">Phone number is invalid</div>
+            <div *ngIf="phone.touched && phone.errors.minlength">Phone number should have atleast 10 digits</div>
         </div>
         <input id="phone" name="phone" class="col-md-12 col-sm-12 col-12" placeholder="Phonenumber" 
-        #phone="ngModel" required [(ngModel)]="user.phone" pattern="[0-9]+">
+        #phone="ngModel" required [(ngModel)]="user.phone" pattern="[0-9]+" minlength="10">
     </label>
     <label class="col-md-12 col-sm-12 col-12">
         <div *ngIf="paymentplan.touched && paymentplan.invalid" class="alert alert-danger"> 
