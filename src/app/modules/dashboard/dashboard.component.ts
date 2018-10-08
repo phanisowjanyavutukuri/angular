@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
     d3.selectAll("svg > *").remove();
     d3.select(".tooltip").remove();
     d3.selectAll("#timeline1 > *").remove();
-    this.legendColor = 'transparant';
+    this.legendColor = 'whitesmoke';
     this.clinicName = '';
     this.dashboardService.getEvents(this.searchCriteria.startTime, this.searchCriteria.endTime,
     this.searchCriteria.boxId).subscribe(data => {
